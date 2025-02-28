@@ -1,0 +1,266 @@
+/* General Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95); /* Variant of white */
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    z-index: 50;
+}
+.headerNameLogo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;  /* Space between icon and text */
+}
+/* Container */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 14px 20px;
+}
+
+/* Logo */
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #222; /* Darker for contrast */
+    letter-spacing: 1px;
+    font-family: "Poppins", sans-serif;
+}
+
+.highlight {
+    color: #0056b3; /* Deep blue for pop */
+}
+
+/* Desktop Menu */
+.desktop-menu {
+    display: flex;
+    gap: 41px;
+    font-weight: 500;
+}
+
+/* Menu Links */
+.menu-link {
+    position: relative;
+    text-decoration: none;
+    color: #222; /* Dark color for better contrast */
+    font-size: 19px;
+    transition: color 0.3s ease-in-out;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Underline animation */
+.menu-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #0056b3;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.menu-link:hover {
+    color: #0056b3;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* Login Button */
+.login-btn-container {
+    display: block;
+}
+
+.login-btn {
+    padding: 10px 20px;
+    border-radius: 999px;
+    background: #0056b3;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: "Poppins", sans-serif;
+}
+
+.login-btn:hover {
+    background: #003f8a;
+    transform: scale(1.05);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    color: #222;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu-btn:hover {
+    transform: rotate(90deg);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: block;
+    background: rgba(255, 255, 255, 0.98); /* Variant of white */
+    backdrop-filter: blur(15px);
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* Mobile Menu Links */
+
+.mobile-menu-link {
+    display: block;
+    padding: 12px;
+    color: #222;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+}
+
+.mobile-menu-link:hover {
+    background: rgba(0, 86, 179, 0.1); /* Light blue background */
+    color: #0056b3; /* Dark blue text */
+    transform: scale(1.05); /* Slight zoom effect */
+    font-weight: bold;
+}
+
+
+/* Mobile Login Button */
+.mobile-login-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 999px;
+    background: #0056b3;
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: "Poppins", sans-serif;
+}
+
+.mobile-login-btn:hover {
+    background: #003f8a;
+    transform: scale(1.05);
+}
+
+/* Responsive - Show Mobile Menu Button */
+@media (max-width: 850px) {
+    .desktop-menu,
+    .login-btn-container {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+/* Container for the animated square */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    perspective: 1000px; /* Enables 3D effect */
+}
+
+/* Flip Box Wrapper */
+.flip-box {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Initial Front and Back Faces */
+.logo-square,
+.logo-square-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Hides the back when not flipped */
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.5s ease-in-out;
+}
+
+/* Front Side */
+.logo-square {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Light theme */
+}
+
+/* Back Side */
+.logo-square-back {
+    background: linear-gradient(135deg, #003f8a, #0056b3); /* Dark theme */
+    transform: rotateY(180deg);
+}
+
+/* Hover Effect - Flip */
+.logo-container:hover .flip-box {
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+/* Decorative lines to simulate a form */
+.logo-square::before,
+.logo-square::after,
+.logo-square-back::before,
+.logo-square-back::after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 4px;
+    background: #adb5bd;
+    border-radius: 2px;
+    transition: 0.4s;
+}
+
+/* Line positions */
+.logo-square::before,
+.logo-square-back::before {
+    top: 35%;
+}
+
+.logo-square::after,
+.logo-square-back::after {
+    top: 55%;
+}
+
+/* Change Line Color on Hover */
+.logo-container:hover .logo-square-back::before,
+.logo-container:hover .logo-square-back::after {
+    background: #ffd700; /* Gold for contrast */
+    width: 80%;
+}

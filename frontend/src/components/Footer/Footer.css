@@ -1,0 +1,146 @@
+/* Footer Base */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #0056b3, #003f8a);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+
+/* Footer Container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+/* Ensure enough space in the main content */
+.main-content {
+    padding-bottom: 100px; /* Adjust according to footer height */
+}
+
+/* Footer Logo */
+.footer-logo {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+/* Footer Title */
+.footer-title {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #ffd700; /* Gold for contrast */
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Footer Links */
+.footer-links {
+    flex: 1;
+    min-width: 180px;
+    text-align: left;
+}
+
+.footer-links h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links ul li a:hover {
+    color: #ffd700;
+    text-decoration: underline;
+}
+
+/* Social Media Section */
+.footer-social {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+.footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 18px;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: #ffd700;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 15px;
+    font-size: 14px;
+    opacity: 0.8;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Footer for Small Screens */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-links, .footer-social {
+        min-width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
