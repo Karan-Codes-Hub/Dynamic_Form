@@ -1,0 +1,5 @@
+setup backend with express
+setup frontend with react and ts
+setup git 
+setup tailwind 
+setup docker
