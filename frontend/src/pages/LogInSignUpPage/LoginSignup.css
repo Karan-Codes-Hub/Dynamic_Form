@@ -1,0 +1,218 @@
+/* Base Container */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4); /* Dimmed background */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(5px); /* Blurred effect */
+}
+
+/* Modal Box with 3D Look */
+.login-box {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Depth effect */
+    text-align: center;
+    width: 400px;
+    position: relative;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.login-box:hover {
+    transform: scale(1.02);
+}
+
+/* Close Button (Top-Right Corner) */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Title */
+.login-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Input Container (for Floating Labels) */
+.input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 22px; /* Added more space between inputs */
+}
+
+/* Input Fields */
+.input-field {
+    width: 90%;
+    padding: 16px 16px; /* Increased padding for better spacing */
+    margin-bottom: 6px; /* Added more space between inputs */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    background: #f9f9f9;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Floating Label */
+.input-container label {
+    position: absolute;
+    left: 14px;
+    top: 18px; /* Adjusted for better alignment */
+    font-size: 14px;
+    color: #888;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* Move label up when input is focused or filled */
+.input-field:focus + label,
+.input-field:not(:placeholder-shown) + label {
+    top: 5px;
+    left: 12px;
+    font-size: 12px;
+    color: #0056b3;
+}
+
+/* Input Focus Effect */
+.input-field:focus {
+    border-color: #0056b3;
+    background: #fff;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #0056b3, #003f8a);
+    color: white;
+    padding: 15px; /* Slightly bigger button */
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #003f8a, #001f4d);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Social Login Buttons */
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px; /* Added spacing */
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px; /* Increased size for better UX */
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-btn .icon {
+    margin-right: 6px;
+    font-size: 18px;
+}
+
+/* Google Button */
+.google {
+    background: #db4437;
+}
+
+.google:hover {
+    background: #b0301c;
+}
+
+/* GitHub Button */
+.github {
+    background: #333;
+}
+
+.github:hover {
+    background: #000;
+}
+
+/* LinkedIn Button */
+.linkedin {
+    background: #0077b5;
+}
+
+.linkedin:hover {
+    background: #005a8e;
+}
+
+/* Toggle Text */
+.toggle-text {
+    margin-top: 18px; /* Adjusted spacing */
+    font-size: 15px;
+    color: #666;
+}
+
+.toggle-link {
+    color: #0056b3;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.toggle-link:hover {
+    text-decoration: underline;
+}
+/* Back Button */
+.back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+    color: #0056b3;
+}
+
+.back-icon {
+    margin-right: 5px;
+    font-size: 18px;
+}

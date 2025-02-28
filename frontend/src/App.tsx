@@ -1,24 +1,30 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import Header from "../src/components/Header/Header";
+import Footer from "../src/components/Footer/Footer";
+import LoginSignup from "../src/pages/LogInSignUpPage/LoginSignup"; // Import the LoginSignup page
 
-const App = () => {
+const App: React.FC = () => {
+  return (
+    <Router>
+      <AppLayout />
+    </Router>
+  );
+};
+
+const AppLayout: React.FC = () => {
+  const location = useLocation();
+  const isAuthPage = location.pathname === "/login"; // Check if on login page
+
   return (
     <>
-    <Header />
-    <div className="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 via-purple-600 to-indigo-700">
-      <div className="bg-white/20 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-white/10 text-center transform transition-all duration-300 hover:scale-105">
-        <h1 className="text-4xl font-extrabold text-white drop-shadow-md animate-fade-in">
-          Dynamic Form
-        </h1>
-      </div>
-    </div>
-    <Footer />
+      {!isAuthPage && <Header />} {/* Show Header only if not on /login */}
+      <Routes>
+        <Route path="/login" element={<LoginSignup />} />
+      </Routes>
+      {!isAuthPage && <Footer />} {/* Show Footer only if not on /login */}
     </>
   );
 };
 
 export default App;
-
-
-
