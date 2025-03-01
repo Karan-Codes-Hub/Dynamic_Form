@@ -1,0 +1,49 @@
+/* src/components/FeaturesSection/FeaturesSection.css */
+.features-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Light gray background */
+    text-align: center;
+  }
+  
+  .features-section h2 {
+    font-size: 2.5rem; /* Large heading */
+    margin-bottom: 40px;
+    color: #333; /* Dark text */
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Spacing between cards */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .feature-card {
+    background-color: #fff; /* White background */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem; /* Large icon */
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.5rem; /* Medium heading */
+    margin-bottom: 10px;
+    color: #333; /* Dark text */
+  }
+  
+  .feature-card p {
+    font-size: 1rem; /* Small paragraph */
+    color: #666; /* Gray text */
+  }

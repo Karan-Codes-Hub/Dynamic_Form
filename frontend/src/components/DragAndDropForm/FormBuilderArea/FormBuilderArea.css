@@ -16,6 +16,11 @@
     border: 2px solid #007bff;
     background: rgba(0, 123, 255, 0.05);
   }
+  .form-builder-area-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
   
   /* Section Title */
   .form-builder-area h2 {

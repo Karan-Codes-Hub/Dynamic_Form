@@ -40,7 +40,7 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <div className="desktop-menu">
-          {["Dashboard", "Features", "Pricing", "Contact"].map((tab) => (
+          {["Dashboard", "Features", "Contact"].map((tab) => (
             <div
               key={tab}
               className="menu-link"
