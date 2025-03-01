@@ -1,0 +1,244 @@
+/* Sidebar Container */
+.sidebar-container {
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease-in-out;
+    flex-direction: column;
+    padding: 20px 15px;
+    position: fixed;
+  }
+  
+  /* Collapsed Sidebar */
+  .sidebar-container.collapsed {
+    width: 80px;
+    padding: 20px 10px;
+    justify-content: center;
+  }
+  
+  /* Sidebar Header */
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:  15px;
+   
+  }
+  
+  /* Collapse Button */
+  .collapse-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  
+  .collapse-icon {
+    width: 24px;
+    height: 24px;
+    color: #333;
+  }
+  
+  /* Logo */
+  .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+  
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    fill: #007bff;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-left: 10px;
+    transition: opacity 0.3s;
+  }
+  
+  .sidebar-container.collapsed .logo-text {
+    display: none;
+  }
+  
+  /* Menu Section */
+  .menu-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  
+  .menu-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+   
+  }
+  
+  
+  
+  .menu-item:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .menu-item.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    color: inherit;
+  }
+  
+  .menu-text {
+    margin-left: 12px;
+    font-weight: 500;
+    transition: opacity 0.3s;
+  }
+  
+  .sidebar-container.collapsed .menu-text {
+    display: none;
+  }
+  
+  /* Bottom Menu Section */
+  .menu-section:last-child {
+    margin-top: auto;
+  }
+  
+  /* Notification Dot */
+  .notification-dot {
+    width: 8px;
+    height: 8px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+  }
+  
+  .menu-item.relative {
+    position: relative;
+  }
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; /* Allows logo to take available space */
+}
+
+/* FormBuilder Text */
+.logo-text {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    text-transform: uppercase;
+    color: #222; /* Black */
+    letter-spacing: 1px;
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Highlight "Builder" */
+.logo-highlight {
+    color: #ffcc00; /* Yellow */
+}
+
+/* Collapse Button */
+.collapse-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Collapse Icon */
+.menu-toggle-icon {
+    width: 26px;
+    height: 26px;
+    color: #333;
+    transition: transform 0.3s;
+}
+
+/* When Sidebar is Collapsed */
+.sidebar-container.collapsed .sidebar-header {
+    justify-content: center; /* Center align items */
+}/* Ensure Sidebar Footer Sticks to Bottom */
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full height */
+    justify-content: space-between; /* Pushes footer to bottom */
+  }
+  
+  /* Sidebar Footer */
+  .sidebar-footer {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto; /* Pushes it to bottom */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Footer Item Styling */
+  .profile-settings {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    border-radius: 8px;
+    transition: background 0.3s;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+  }
+  
+  /* Footer Hover Effect */
+  .profile-settings:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Ensure Icons & Text Align Properly */
+  .profile-settings .menu-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  
+  /* When Sidebar is Collapsed - Stack Icons */
+  .sidebar-container.collapsed .profile-settings {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Center icons when collapsed */
+  .sidebar-container.collapsed .menu-item {
+    justify-content: center;
+  }
+  
