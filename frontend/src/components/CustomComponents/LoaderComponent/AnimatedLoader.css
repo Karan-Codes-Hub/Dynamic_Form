@@ -1,0 +1,83 @@
+:root {
+    --yellow: #feb60a;
+    --red: #ff0062;
+    --blue: #00dbf9;
+    --violet: #da00f7;
+}
+
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(31, 29, 97, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Bouncing Balls Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; /* Increased spacing between balls */
+}
+
+/* Ball Styles */
+.ball {
+    width: 16px;  /* Increased size slightly */
+    height: 16px; /* Increased size slightly */
+    border-radius: 50%;
+    background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    animation: bounce 1.2s infinite ease-in-out alternate;
+}
+
+/* Individual Ball Colors */
+.yellow {
+    background-color: var(--yellow);
+    animation-delay: 0s;
+}
+
+.red {
+    background-color: var(--red);
+    animation-delay: 0.2s;
+}
+
+.blue {
+    background-color: var(--blue);
+    animation-delay: 0.4s;
+}
+
+.violet {
+    background-color: var(--violet);
+    animation-delay: 0.6s;
+}
+
+/* Staggered Bounce Animation */
+@keyframes bounce {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-12px) scale(1.2); /* Adjusted bounce height */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.6;
+    }
+}
+
+/* Loader Text */
+.loader-text {
+    margin-top: 12px; /* Slightly more spacing from loader */
+    font-size: 0.9rem; /* Slightly larger text */
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+}
