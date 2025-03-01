@@ -1,0 +1,195 @@
+/* Modern Form Builder Area */
+.form-builder-area {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fc, #e9eff6);
+    overflow-y: auto;
+    border-radius: 12px;
+    border: 2px dashed rgba(0, 123, 255, 0.5);
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease-in-out;
+  }
+  
+  /* Highlight Drop Area on Drag */
+  .form-builder-area.dragging {
+    border: 2px solid #007bff;
+    background: rgba(0, 123, 255, 0.05);
+  }
+  
+  /* Section Title */
+  .form-builder-area h2 {
+    margin-top: 0;
+    color: #222;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  
+  /* Form Elements */
+  .form-element {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 15px;
+    position: relative;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hover Effect */
+  .form-element:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Item Icon */
+  .item-icon {
+    font-size: 28px;
+    margin-right: 15px;
+    color: #007bff;
+  }
+  
+  /* Item Content */
+  .item-content {
+    width: 97%;
+  }
+  
+  .item-content h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #222;
+    font-weight: 600;
+  }
+  
+  .item-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Delete Button (Better Positioning & Styling) */
+  .delete-button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    background: #ff4d4f;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .delete-button:hover {
+    background: #d93025;
+    transform: scale(1.1);
+  }
+  
+  /* Input Field Styling */
+  .form-builder-area .form-element input,
+  .form-builder-area .form-element select,
+  .form-builder-area .form-element textarea {
+    width: 97%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .form-builder-area .form-element input:focus,
+  .form-builder-area .form-element select:focus,
+  .form-builder-area .form-element textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  }
+  /* src/components/DragAndDropForm/FormBuilderArea/FormBuilderArea.css */
+.download-button {
+    padding: 12px 24px;
+    background-color: #28a745; /* Green color for the download button */
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .download-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-1px); /* Slight lift on hover */
+  }
+  
+  .download-button:active {
+    transform: translateY(0); /* Reset lift on click */
+  }
+  /* Button Styling */
+  .form-builder-area .form-element button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .form-builder-area .form-element button:hover {
+    background: linear-gradient(135deg, #0056b3, #003d80);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 91, 187, 0.4);
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 979px) {
+    .form-builder-area h2 {
+      font-size: 22px;
+    }
+    .form-element {
+      padding: 15px;
+    }
+  }
+  
+  @media only screen and (max-width: 639px) {
+    .form-builder-area {
+      padding: 15px;
+    }
+    .form-element {
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .form-builder-area .form-element input,
+    .form-builder-area .form-element select,
+    .form-builder-area .form-element textarea {
+      padding: 10px;
+    }
+    .delete-button {
+      right: 10px;
+      top: 10px;
+      width: 24px;
+      height: 24px;
+      font-size: 14px;
+    }
+  }
+  

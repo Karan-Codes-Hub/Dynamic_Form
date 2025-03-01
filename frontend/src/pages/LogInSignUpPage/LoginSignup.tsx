@@ -56,22 +56,18 @@ const LoginSignup: React.FC = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      navigate("/");
-    }, 4000);
+      navigate("/dashboard");
+    }, 2000);
   };
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>, field: string) => {
     setUserObject((prevState) => ({ ...prevState, [field]: e.target.value }));
   };
-
-  useEffect(() => {
-    console.log(userObject);
-  }, [userObject]);
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
         //preventing default form behaviour
-        console.log(userObject,"Enter key pressed");
+        
         handleSubmit();
       }
     };
