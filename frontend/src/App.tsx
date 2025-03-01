@@ -7,6 +7,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AnimatedLoader from "./components/CustomComponents/LoaderComponent/AnimatedLoader";
 import Dashboard from "../src/pages/Dashboard/Dashboard";
+import Page404 from "./pages/NotFoundpage/Page404";
+import CreateForm from "../src/pages/CreateForm/CreateForm";
 
 const App: React.FC = () => {
   return (
@@ -39,7 +41,7 @@ const App: React.FC = () => {
 const AppLayout: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isAuthPage = location.pathname === "/login";
+  const isRootRoute = location.pathname === "/";
 
   // Redirect to `/dashboard?tab=Home` when the user navigates to `/dashboard`
   useEffect(() => {
@@ -50,14 +52,20 @@ const AppLayout: React.FC = () => {
 
   return (
     <>
-      {!isAuthPage && location.pathname !== "/dashboard" && <Header />}
+     {isRootRoute && <Header />}
+
       <Routes>
-        <Route path="/login" element={<LoginSignup />} />
+       
+      <Route path="/login" element={<LoginSignup />} />
         <Route path="/SignUp" element={<LoginSignup />} />
         <Route path="/loader" element={<AnimatedLoader message="Loading..." />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/createform" element={<CreateForm />} />
+         {/* 404 Catch-All Route */}
+        {location.pathname != "/" && <Route path="*" element={<Page404 />} />}
       </Routes>
-      {!isAuthPage && location.pathname !== "/dashboard" && <Footer />}
+      {isRootRoute && <Footer />}
+
     </>
   );
 };

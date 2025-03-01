@@ -1,0 +1,74 @@
+/* src/components/DragAndDropForm/SideBarForDragAndDrop/SideBarForDragAndDrop.css */
+.sidebarForDragAndDrop {
+    width: 350px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 85%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+  }
+  
+  .search-bar input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  .items-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns for square cards */
+    gap: 15px; /* Spacing between cards */
+  }
+  
+  .item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    aspect-ratio: 1; /* Ensures the card is square */
+    text-align: center; /* Center-align text */
+  }
+  
+  .item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .item-icon {
+    font-size: 32px; /* Larger icon */
+    margin-bottom: 10px; /* Spacing between icon and text */
+    color: #007bff; /* Blue color for icons */
+  }
+  
+  .item-content h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .item-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+  }
