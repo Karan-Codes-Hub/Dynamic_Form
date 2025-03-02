@@ -5,6 +5,7 @@ import AnimatedLoader from '../../components/CustomComponents/LoaderComponent/An
 import './Dashboard.css';
 // import { CircularProgress } from '@mui/material';
 // import Card from '../../components/CustomComponents/CardComponent/Card';
+import CreateForm from '../CreateForm/CreateForm';
 
 const Dashboard: React.FC = () => {
     const [isTabLoading, setIsTabLoading] = useState(true);
@@ -25,21 +26,24 @@ const Dashboard: React.FC = () => {
                 <SidebarMenu setIsTabLoading={setIsTabLoading} />
             </div>
             <div className="main-content">
-                {isTabLoading ? (
-                    <div className="loader-container">
-                        <AnimatedLoader message="Loading..." />
+            {isTabLoading ? (
+                <div className="loader-container">
+                    <AnimatedLoader message="Loading..." />
+                </div>
+            ) : (
+                tab === "CreateForm" ? (
+                    <div className='content'>
+                        <CreateForm />
                     </div>
                 ) : (
                     <div className="content">
-                        <h1>Welcome to {tab}</h1> {/* Dynamically display the tab name */}
+                        <h1>Welcome to {tab}</h1>
                         <p>This is the main content of the {tab} page.</p>
                         {/* <CircularProgress /> */}
                     </div>
-                    // <div className="content">
-                    //     <Card />
-                    // </div>
-                )}
-            </div>
+                )
+            )}
+        </div>
         </div>
     );
 };

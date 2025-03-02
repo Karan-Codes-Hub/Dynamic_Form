@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Tooltip from '@mui/material/Tooltip'; // Import Tooltip from Material-UI
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import './sidebarmenu.css';
 
 interface SidebarMenuProps {
@@ -23,7 +24,7 @@ const SidebarMenu: React.FC<SidebarMenuProps> = ({ setIsTabLoading }) => {
     const activeTab = searchParams.get("tab") || "Home";
 
     // List of valid tabs
-    const itemList = ['Home', 'Projects', 'Upload', 'Templates', 'Settings', 'Profile'];
+    const itemList = ['Home', 'Projects', 'Upload', 'Templates', 'Settings', 'Profile', 'CreateForm'];
 
     // Redirect to /404 if the tab is not in the itemList
     useEffect(() => {
@@ -125,6 +126,7 @@ const menuItems = [
     { name: 'Projects', icon: <FolderIcon className="menu-icon" /> },
     { name: 'Upload', icon: <UploadFileIcon className="menu-icon" /> },
     { name: 'Templates', icon: <ViewListIcon className="menu-icon" /> },
+    { name: 'CreateForm', icon: <AddBoxIcon className="menu-icon" /> },
 ];
 
 export default SidebarMenu;

@@ -38,6 +38,7 @@ const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop,
 
     // Function to handle saving the modal configuration
     const handleSaveModal = (updatedElement: FormElement) => {
+      console.log(updatedElement, selectedIndex,"selectedIndex");
         if (selectedIndex !== null) {
           onUpdate(selectedIndex, updatedElement); // Update the element in the parent state
         }
@@ -50,18 +51,12 @@ const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop,
     // Map form elements to a detailed JSON structure
     const jsonData = formElements.map((element, index) => ({
       type: element.type, // Type of the form element (e.g., textbox, radio, etc.)
-      id: index, // Use index as the ID
+      id: element?.id, // Use index as the ID
       label: element.name, // Label for the form element
       description: element.description, // Description of the form element
       value: formValues[index] || '', // Use the value from formValues state
-      style: {
-        // Styling options for the form element
-        backgroundColor: '#ffffff', // Default background color
-        borderColor: '#ced4da', // Default border color
-        borderRadius: '8px', // Rounded corners
-        padding: '12px', // Padding
-        fontSize: '14px', // Font size
-      },
+      options : element.options, // Options for select, radio, and checkbox
+      style: element.style || {}, // Style for the form element
       prefill: {
         // Prefill options (e.g., default values)
         enabled: false, // Whether prefill is enabled

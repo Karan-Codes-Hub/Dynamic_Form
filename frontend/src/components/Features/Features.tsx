@@ -1,39 +1,56 @@
-// src/components/FeaturesSection/FeaturesSection.tsx
 import React from 'react';
+import { CloudDownload, Build, TouchApp, Visibility, Speed, Security } from '@mui/icons-material';
 import './Features.css';
 
 const FeaturesSection: React.FC = () => {
   const features = [
     {
-      icon: '🖱️',
-      title: 'Drag & Drop',
-      description: 'Easily drag and drop form elements to build your custom forms.',
+      icon: <TouchApp fontSize="large" />,
+      title: 'Drag & Drop Builder',
+      description: 'Easily drag and drop form elements to create custom forms.',
     },
     {
-      icon: '📥',
-      title: 'Download JSON',
-      description: 'Download the form configuration as JSON for seamless integration.',
+      icon: <CloudDownload fontSize="large" />,
+      title: 'Export as JSON',
+      description: 'Download the form configuration in JSON format for seamless integration.',
     },
     {
-      icon: '⚙️',
-      title: 'Customizable',
-      description: 'Configure labels, options, and more for each form element.',
+      icon: <Build fontSize="large" />,
+      title: 'Highly Customizable',
+      description: 'Modify labels, options, and styles for each form element.',
+    },
+    {
+      icon: <Visibility fontSize="large" />,
+      title: 'Real-time Preview',
+      description: 'Instantly preview how your form looks and behaves.',
+    },
+    {
+      icon: <Speed fontSize="large" />,
+      title: 'Optimized Performance',
+      description: 'Lightning-fast rendering and smooth UI interactions.',
+    },
+    {
+      icon: <Security fontSize="large" />,
+      title: 'Secure & Reliable',
+      description: 'Your data is protected with industry-standard security measures.',
     },
   ];
 
   return (
-    <div className="features-section">
-      <h2>Why Choose Us?</h2>
+    <section className="features-section">
+      <h2 className="section-title">Why Choose Us?</h2>
       <div className="features-grid">
         {features.map((feature, index) => (
-          <div key={index} className="feature-card">
+          <div key={index} className="feature-item">
             <div className="feature-icon">{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
+            <div className="feature-content">
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

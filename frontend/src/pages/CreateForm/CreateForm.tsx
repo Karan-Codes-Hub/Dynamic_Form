@@ -17,6 +17,7 @@ const CreateForm: React.FC = () => {
   };
 
   const handleDelete = (id: string) => {
+    console.log(id, formElements, "delete");
     setFormElements((prev) => prev.filter((element) => element.id !== id));
   };
 
@@ -40,6 +41,7 @@ const CreateForm: React.FC = () => {
             onUpdate={handleUpdate}
           />
         </div>
+        
       </div>
     </DndProvider>
   );

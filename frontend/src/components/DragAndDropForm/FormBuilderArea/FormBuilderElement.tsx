@@ -4,13 +4,21 @@ import { FormElement } from '../types';
 import './FormBuilderArea.css';
 import { showToast } from '../../../services/toastService';
 import FormElementModal from './FormElementModal'; // Import the modal component
+import TextField from '@mui/material/TextField'; // MUI TextField
+import Select from '@mui/material/Select'; // MUI Select
+import MenuItem from '@mui/material/MenuItem'; // MUI MenuItem
+import Checkbox from '@mui/material/Checkbox'; // MUI Checkbox
+import FormControlLabel from '@mui/material/FormControlLabel'; // MUI FormControlLabel
+import Radio from '@mui/material/Radio'; // MUI Radio
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 interface FormBuilderElementProps {
   index: number; // Index of the form element
   element: FormElement;
   value: string; // Current value of the form element
   onChangeValue: (index: number, value: string) => void; // Handler for value changes
-  onDelete: (id: number) => void; // Handler for deletion
+  onDelete: (id: string) => void; // Handler for deletion
   onUpdate: (index: number, updatedElement: FormElement) => void; // Handler for updating the element
 }
 
@@ -43,79 +51,94 @@ const FormBuilderElement: React.FC<FormBuilderElementProps> = ({
 
   return (
     <div className="form-element" onDoubleClick={handleDoubleClick}>
-      <div className="item-icon">{element.icon}</div>
       <div className="item-content">
-        <h3>{element.name}</h3> {/* Render the updated label */}
-        <p>{element.description}</p>
+        <h3 style={element.style}>{element.name}</h3>
         {element.type === 'textbox' && (
-          <input
-            type="text"
-            placeholder="Enter text"
+          <TextField
+            fullWidth
+            label={element.name} // Use the element name as the label
+            variant="outlined"
             value={value}
             onChange={handleInputChange}
+            placeholder="Enter text"
           />
         )}
         {element.type === 'single-select' && (
-          <select value={value} onChange={handleInputChange}>
-            <option value="">Select an option</option>
-            {element.options?.map((option, i) => (
-              <option key={i} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel>{element.name}</InputLabel> {/* Label */}
+            <Select
+              value={value}
+              onChange={handleInputChange}
+              label={element.name} // Associate the label with Select
+            >
+              <MenuItem value="">Select an option</MenuItem>
+              {element.options?.map((option, i) => (
+                <MenuItem key={i} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         )}
+
         {element.type === 'multi-select' && (
-          <select multiple value={value.split(',')} onChange={handleInputChange}>
-            {element.options?.map((option, i) => (
-              <option key={i} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel>{element.name}</InputLabel> {/* Label */}
+            <Select
+              multiple
+              value={value.split(',')}
+              onChange={handleInputChange}
+              label={element.name} // Associate the label with Select
+            >
+              {element.options?.map((option, i) => (
+                <MenuItem key={i} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         )}
+
         {element.type === 'radio' && (
           <div>
             {element.options?.map((option, i) => (
-              <label key={i}>
-                <input
-                  type="radio"
-                  name={`radio-${index}`}
-                  value={option}
-                  checked={value === option}
-                  onChange={handleInputChange}
-                />{' '}
-                {option}
-              </label>
+              <FormControlLabel
+                key={i}
+                value={option}
+                control={<Radio />}
+                label={option}
+                checked={value === option}
+                onChange={handleInputChange}
+              />
             ))}
           </div>
         )}
         {element.type === 'checkbox' && (
           <div>
             {element.options?.map((option, i) => (
-              <label key={i}>
-                <input
-                  type="checkbox"
-                  value={option}
-                  checked={value.includes(option)}
-                  onChange={handleInputChange}
-                />{' '}
-                {option}
-              </label>
+              <FormControlLabel
+                key={i}
+                value={option}
+                control={<Checkbox />}
+                label={option}
+                checked={value.includes(option)}
+                onChange={handleInputChange}
+              />
             ))}
           </div>
         )}
       </div>
-      <button className="delete-button" onClick={() => onDelete(index)}>
+      <button className="delete-button" onClick={() => onDelete(element?.id)}>
         🗑️
       </button>
 
       {/* Modal for configuring the form element */}
       {isModalOpen && (
         <FormElementModal
-          element={element} // Pass the current element
-          onSave={handleSaveModal} // Pass the save handler
-          onClose={() => setIsModalOpen(false)} // Pass the close handler
+          element={element}
+          isOpen={isModalOpen}
+          onSave={handleSaveModal}
+          onClose={() => setIsModalOpen(false)}
         />
       )}
     </div>
