@@ -5,21 +5,28 @@ import { ItemTypes } from '../types';
 import FormBuilderElement from './FormBuilderElement';
 import { FormElement } from '../types';
 import './FormBuilderArea.css';
+import FormElementModal from './FormElementModal';
 
 interface FormBuilderAreaProps {
-  formElements: FormElement[];
-  onDrop: (element: FormElement) => void;
-  onDelete: (id: number) => void; // id is now a number (index)
-}
-
-const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop, onDelete }) => {
+    formElements: FormElement[];
+    onDrop: (element: FormElement) => void;
+    onDelete: (id: number) => void; // id is now a number (index)
+    onUpdate: (index: number, updatedElement: FormElement) => void; // Function to update element
+  }
+  
+const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop, onDelete, onUpdate }) => {
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null); // Track the index of the selected element
+  const [formValues, setFormValues] = useState<{ [key: number]: string }>({}); // State to manage form values
   const [, drop] = useDrop(() => ({
     accept: ItemTypes.FORM_ELEMENT,
-    drop: (item: { element: FormElement }) => onDrop(item.element),
-  }));
+    drop: (item: { element: FormElement }) => {
+      const newIndex = formElements.length; // Index of the newly dropped element
+      onDrop(item.element); // Add the element to the form builder area
 
-  // State to manage form values
-  const [formValues, setFormValues] = useState<{ [key: number]: string }>({});
+    //   setSelectedIndex(newIndex);
+    },
+  }));
+ 
 
   // Function to handle value changes
   const handleOnChangeValue = (index: number, value: string) => {
@@ -29,23 +36,27 @@ const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop,
     }));
   };
 
+    // Function to handle saving the modal configuration
+    const handleSaveModal = (updatedElement: FormElement) => {
+      console.log(updatedElement, selectedIndex,"selectedIndex");
+        if (selectedIndex !== null) {
+          onUpdate(selectedIndex, updatedElement); // Update the element in the parent state
+        }
+        setSelectedIndex(null); // Close the modal
+      };
+    
+
   // Function to generate and download JSON
   const downloadJson = () => {
     // Map form elements to a detailed JSON structure
     const jsonData = formElements.map((element, index) => ({
       type: element.type, // Type of the form element (e.g., textbox, radio, etc.)
-      id: index, // Use index as the ID
+      id: element?.id, // Use index as the ID
       label: element.name, // Label for the form element
       description: element.description, // Description of the form element
       value: formValues[index] || '', // Use the value from formValues state
-      style: {
-        // Styling options for the form element
-        backgroundColor: '#ffffff', // Default background color
-        borderColor: '#ced4da', // Default border color
-        borderRadius: '8px', // Rounded corners
-        padding: '12px', // Padding
-        fontSize: '14px', // Font size
-      },
+      options : element.options, // Options for select, radio, and checkbox
+      style: element.style || {}, // Style for the form element
       prefill: {
         // Prefill options (e.g., default values)
         enabled: false, // Whether prefill is enabled
@@ -85,7 +96,12 @@ const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop,
 
   return (
     <div ref={drop} className="form-builder-area">
-      <h2>Form Builder</h2>
+      <div className="form-builder-area-header">
+        <h2>Form Builder</h2>
+        <button className="download-button" onClick={downloadJson}>
+          Download JSON
+        </button>
+      </div>
       {formElements.map((element, index) => (
         <FormBuilderElement
           key={index} // Use index as the key
@@ -94,13 +110,17 @@ const FormBuilderArea: React.FC<FormBuilderAreaProps> = ({ formElements, onDrop,
           value={formValues[index] || ''} // Pass the current value
           onChangeValue={handleOnChangeValue} // Pass the change handler
           onDelete={onDelete}
+          onUpdate={onUpdate} // Pass the save handler
         />
       ))}
-      <button className="download-button" onClick={downloadJson}>
-        Download JSON
-      </button>
+      {selectedIndex !== null && (
+        <FormElementModal
+          element={formElements[selectedIndex]} // Pass the selected element
+          onSave={handleSaveModal} // Pass the save handler
+          onClose={() => setSelectedIndex(null)} // Pass the close handler
+        />
+      )}
     </div>
   );
 };
-
 export default FormBuilderArea;

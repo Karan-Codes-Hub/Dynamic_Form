@@ -1,8 +1,7 @@
 /* Footer Base */
 .footer {
-    position: fixed;
+    
     bottom: 0;
-    left: 0;
     width: 100%;
     background: linear-gradient(90deg, #0056b3, #003f8a);
     color: white;

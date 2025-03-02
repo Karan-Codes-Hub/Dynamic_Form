@@ -11,14 +11,20 @@ const CreateForm: React.FC = () => {
   const [formElements, setFormElements] = useState<FormElement[]>([]);
 
   const handleDrop = (element: FormElement) => {
-    // Generate a unique ID for the new element
     const uniqueId = `${element.type}-${Date.now()}`;
     const newElement = { ...element, id: uniqueId };
     setFormElements((prev) => [...prev, newElement]);
   };
 
   const handleDelete = (id: string) => {
+    console.log(id, formElements, "delete");
     setFormElements((prev) => prev.filter((element) => element.id !== id));
+  };
+
+  const handleUpdate = (index: number, updatedElement: FormElement) => {
+    setFormElements((prev) =>
+      prev.map((element, i) => (i === index ? updatedElement : element))
+    );
   };
 
   return (
@@ -32,8 +38,10 @@ const CreateForm: React.FC = () => {
             formElements={formElements}
             onDrop={handleDrop}
             onDelete={handleDelete}
+            onUpdate={handleUpdate}
           />
         </div>
+        
       </div>
     </DndProvider>
   );

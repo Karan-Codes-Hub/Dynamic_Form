@@ -1,0 +1,207 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Right Sidebar Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 420px;
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(14px);
+  border-radius: 16px 0 0 16px;
+  padding: 25px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Active class to show the modal */
+.modal.active {
+  transform: translateX(0);
+}
+
+/* FormElementModal.css */
+
+
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+/* Modal Title */
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="color"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group input[type="color"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+/* Options List */
+.options-list {
+  margin-bottom: 10px;
+}
+
+.option-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+}
+
+.option-item span {
+  font-size: 14px;
+  color: #333;
+}
+
+.remove-option-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #ff4d4d;
+  transition: color 0.2s ease;
+}
+
+.remove-option-button:hover {
+  color: #cc0000;
+}
+
+/* Add Option */
+.add-option {
+  display: flex;
+  gap: 10px;
+}
+
+.add-option input {
+  flex: 1;
+}
+
+.add-option button {
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-option button:hover {
+  background-color: #0056b3;
+}
+
+/* Style Section */
+.style-section {
+  margin-top: 20px;
+}
+
+.style-section h4 {
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.style-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.style-row label {
+  flex: 1;
+  font-size: 14px;
+  color: #555;
+}
+
+.style-row input[type="number"],
+.style-row input[type="color"] {
+  flex: 2;
+}
+
+/* Save Button */
+.save-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}

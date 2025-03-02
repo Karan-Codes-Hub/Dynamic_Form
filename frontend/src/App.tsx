@@ -9,6 +9,8 @@ import AnimatedLoader from "./components/CustomComponents/LoaderComponent/Animat
 import Dashboard from "../src/pages/Dashboard/Dashboard";
 import Page404 from "./pages/NotFoundpage/Page404";
 import CreateForm from "../src/pages/CreateForm/CreateForm";
+import HeroSection from "../src/components/HeroSection/HeroSection";
+import FeaturesSection from "../src/components/Features/Features";
 
 const App: React.FC = () => {
   return (
@@ -53,6 +55,8 @@ const AppLayout: React.FC = () => {
   return (
     <>
      {isRootRoute && <Header />}
+     {isRootRoute && <HeroSection />}
+     {isRootRoute && <FeaturesSection />}
 
       <Routes>
        

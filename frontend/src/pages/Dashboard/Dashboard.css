@@ -13,8 +13,7 @@
 
 .main-content {
     flex: 1;
-    width: 80%;
-    padding: 20px;
+  
     background-color: #f5f5f5;
     display: flex;
     justify-content: center;
@@ -35,7 +34,9 @@
 }
 
 .content {
-    width: 80%;
+    width: 100%;
+    margin-left: 270px; /* Adjust margin for main content */
+    margin-top: 100px;
     text-align: center;
     font-size: 21px;
 }
